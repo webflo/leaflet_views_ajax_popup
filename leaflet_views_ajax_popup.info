@@ -1,0 +1,6 @@
+name = Leaflet views AJAX popups
+description = Provides an alternative views plugin for Leaflet module with popups being rendered entities loaded via AJAX.
+core = 7.x
+dependencies[] = leaflet_views
+files[] = leaflet_views_ajax_popup.views.inc
+files[] = leaflet_views_ajax_popup_plugin_style.inc
