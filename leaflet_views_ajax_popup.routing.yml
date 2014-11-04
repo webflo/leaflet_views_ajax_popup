@@ -1,0 +1,6 @@
+leaflet_views_ajax_popup.callback:
+  path: '/leaflet-views-ajax-popup/{entity_type}/{entity_id}/{view_mode}'
+  defaults:
+    _controller: '\Drupal\leaflet_views_ajax_popup\Controller\DefaultController::callback'
+  requirements:
+    _custom_access: '\Drupal\leaflet_views_ajax_popup\Controller\DefaultController::accessCheck'
