@@ -7,11 +7,8 @@ namespace Drupal\leaflet_views_ajax_popup\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\Response;
-use Drupal\Core\Access\AccessCheckInterface;
 use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Session\AccountInterface;
-use Symfony\Component\Routing\Route;
-use Symfony\Component\HttpFoundation\Request;
+use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Default controller for the leaflet_views_ajax_popup module.
@@ -19,14 +16,11 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends ControllerBase {
 
 
-  public function accessCheck($entity_type, $entity_id, AccountInterface $account) {
-    $entity = entity_load($entity_type, $entity_id);
+  public function accessCheck(EntityInterface $entity) {
     return AccessResult::allowedIf($entity->access('view'));
   }
 
-  public function callback($entity_type, $entity_id, $view_mode) {
-    $entity = entity_load($entity_type, $entity_id);
-    if (!$entity) return;
+  public function callback(EntityInterface $entity, $view_mode) {
     $build = entity_view($entity, $view_mode);
     return new Response(drupal_render($build));
   }
