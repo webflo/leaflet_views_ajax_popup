@@ -8,7 +8,7 @@
           data[this._popup._contentNode.childNodes[0].attributes[key].name] = this._popup._contentNode.childNodes[0].attributes[key].value;
         }
         if (typeof data['class'] !== 'undefined' && data['class'] === 'leaflet-ajax-popup') {
-          var url = 'leaflet-views-ajax-popup';
+          var url = drupalSettings.path.basePath + 'leaflet-views-ajax-popup';
           url += '/' + data['data-type'];
           url += '/' + data['data-id'];
           url += '/' + data['data-mode'];
