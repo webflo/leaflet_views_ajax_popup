@@ -14,7 +14,7 @@
           url += '/' + data['data-mode'];
           $.get(url, function (response) {
             if (response) {
-              $('.leaflet-ajax-popup').replaceWith(response);
+              e.target._popup.setContent(response);
             }
           });
         }
