@@ -129,12 +129,7 @@ class LeafletViewsAjaxPopupMap extends LeafletMap {
     $map = leaflet_map_get_info($this->options['map']);
     $build = leaflet_render_map($map, $data, $this->options['height'] . 'px');
 
-    $build['#attached']['js'][] = array(
-      'type' => 'file',
-      'data' => drupal_get_path('module', 'leaflet_views_ajax_popup') . '/leaflet_views_ajax_popup.js',
-    );
-    $build['#attached']['css'][] = drupal_get_path('module', 'leaflet_views_ajax_popup') . '/leaflet_views_ajax_popup.css';
-
+    $build['#attached']['libraries'][] = 'leaflet_views_ajax_popup/leaflet_views_ajax_popup';
     return $build;
   }
 }
